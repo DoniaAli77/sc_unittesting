@@ -19,8 +19,8 @@ app.use(function (req, res, next) {
 });
 
 // Create HTTP Server and Listen for Requests
-app.listen(3000, async (req, res) => {
-  console.log('HTTP Web Server Running On Port 3000');
+app.listen(3001, async (req, res) => {
+  console.log('HTTP Web Server Running On Port 3001');
 
   app.get('/weather', async (req, res) => {
     const { city } = req.query;

@@ -17,6 +17,6 @@
   "devDependencies": {
     "cucumber": "^6.0.5",
     "cucumber-html-reporter": "^5.2.0"
-  },  
+  },
   "license": "ISC"
 }

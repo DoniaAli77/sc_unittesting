@@ -3,11 +3,11 @@ const main = require('./main');
 const mockCountryApiStub = require('./country/country.api.stub.json');
 const mockWeatherApiStub = require('./weather/weather.api.stub.json');
 
-const BASE_URL = 'http://localhost:3000'
+const BASE_URL = 'http://localhost:3001'
 
 // Mocks the weather service for all tests in this file
 jest.mock('./weather/weather.service', () => ({
-  getWeather: jest.fn((location) => mockWeatherApiStub.data),
+  getWeather: jest.fn((location) => {}),
 }));
 
 // Mocks the country service for all tests in this file

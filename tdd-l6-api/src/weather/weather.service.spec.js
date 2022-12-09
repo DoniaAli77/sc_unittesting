@@ -1,5 +1,5 @@
-jest.mock("axios");
 const axios = require('axios');
+jest.mock("axios");
 const weatherService = require('./weather.service');
 const mockWeatherApiStub = require('./weather.api.stub.json');
 
@@ -14,5 +14,7 @@ describe('Weather API', () => {
     const location = { city: 'Istanbul', weatherCode: 'TR' };
     const results = await weatherService.getWeather(location);
     expect(results).toEqual(mockWeatherApiStub.data);
+
+    
   });
 });

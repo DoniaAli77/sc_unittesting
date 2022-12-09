@@ -1,80 +1,26 @@
 [
   {
-    "description": "  In order manage users\n  As a developer\n  I want to make sure CRUD operations through REST API works fine",
+    "description": "  In order manage products\n  As a developer\n  I want to make sure CRUD operations through REST API works fine",
     "keyword": "Feature",
-    "name": "Users Service",
+    "name": "Product management system",
     "line": 2,
-    "id": "users-service",
+    "id": "product-management-system",
     "tags": [
       {
-        "name": "@users-service",
+        "name": "@product-service",
         "line": 1
       }
     ],
-    "uri": "e2e/features/users.feature",
+    "uri": "e2e\\features\\users.feature",
     "elements": [
       {
-        "id": "users-service;create-a-user",
-        "keyword": "Scenario",
-        "line": 14,
-        "name": "create a user",
-        "tags": [
-          {
-            "name": "@users-service",
-            "line": 1
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 8,
-            "name": "A user {\"id\":99,\"name\":\"Dwayne Klocko\",\"email\":\"Rene30@hotmail.com\",\"phoneNumber\":\"1-876-420-9890\"}",
-            "match": {
-              "location": "e2e/steps/users.js:6"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 4000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 9,
-            "name": "I send POST request to /users",
-            "match": {
-              "location": "e2e/steps/users.js:10"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 49000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 10,
-            "name": "I get response code 201",
-            "match": {
-              "location": "e2e/steps/users.js:14"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "users-service;create-a-user",
+        "id": "product-management-system;login",
         "keyword": "Scenario",
         "line": 15,
-        "name": "create a user",
+        "name": "Login",
         "tags": [
           {
-            "name": "@users-service",
+            "name": "@product-service",
             "line": 1
           }
         ],
@@ -84,9 +30,9 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 8,
-            "name": "A user {\"id\":7,\"name\":\"Ian Weimann DVM\",\"email\":\"Euna_Bergstrom@hotmail.com\",\"phoneNumber\":\"(297) 962-1879\"}",
+            "name": "A user of the system",
             "match": {
-              "location": "e2e/steps/users.js:6"
+              "location": "e2e\\steps\\user.js:6"
             },
             "result": {
               "status": "passed",
@@ -97,38 +43,51 @@
             "arguments": [],
             "keyword": "When ",
             "line": 9,
-            "name": "I send POST request to /users",
+            "name": "I enter Donia and 1234",
             "match": {
-              "location": "e2e/steps/users.js:10"
+              "location": "e2e\\steps\\user.js:10"
             },
             "result": {
               "status": "passed",
-              "duration": 55000000
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I send POST request to /users/login",
+            "match": {
+              "location": "e2e\\steps\\user.js:15"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 23000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 10,
+            "line": 11,
             "name": "I get response code 201",
             "match": {
-              "location": "e2e/steps/users.js:14"
+              "location": "e2e\\steps\\user.js:19"
             },
             "result": {
-              "status": "passed",
-              "duration": 2000000
+              "status": "skipped"
             }
           }
         ]
       },
       {
-        "id": "users-service;get-user-by-id",
+        "id": "product-management-system;login",
         "keyword": "Scenario",
-        "line": 24,
-        "name": "get user by Id",
+        "line": 16,
+        "name": "Login",
         "tags": [
           {
-            "name": "@users-service",
+            "name": "@product-service",
             "line": 1
           }
         ],
@@ -137,52 +96,65 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 18,
-            "name": "A userId 99 exist",
+            "line": 8,
+            "name": "A user of the system",
             "match": {
-              "location": "e2e/steps/users.js:19"
+              "location": "e2e\\steps\\user.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 3000000
+              "duration": 0
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 19,
-            "name": "I send GET request to /users",
+            "line": 9,
+            "name": "I enter Ali and 123",
             "match": {
-              "location": "e2e/steps/users.js:23"
+              "location": "e2e\\steps\\user.js:10"
             },
             "result": {
               "status": "passed",
-              "duration": 43000000
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I send POST request to /users/login",
+            "match": {
+              "location": "e2e\\steps\\user.js:15"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 24000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 20,
-            "name": "I receive {\"id\":99,\"name\":\"Dwayne Klocko\",\"email\":\"Rene30@hotmail.com\",\"phoneNumber\":\"1-876-420-9890\",\"secondaryPhoneNumber\": \"(914) 249-3519\"}",
+            "line": 11,
+            "name": "I get response code 201",
             "match": {
-              "location": "e2e/steps/users.js:28"
+              "location": "e2e\\steps\\user.js:19"
             },
             "result": {
-              "status": "passed",
-              "duration": 2000000
+              "status": "skipped"
             }
           }
         ]
       },
       {
-        "id": "users-service;get-user-by-id",
+        "id": "product-management-system;get-product-by-id",
         "keyword": "Scenario",
         "line": 25,
-        "name": "get user by Id",
+        "name": "get product by Id",
         "tags": [
           {
-            "name": "@users-service",
+            "name": "@product-service",
             "line": 1
           }
         ],
@@ -191,10 +163,10 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 18,
-            "name": "A userId 7 exist",
+            "line": 19,
+            "name": "A ProductID 1 exist in the system",
             "match": {
-              "location": "e2e/steps/users.js:19"
+              "location": "e2e\\steps\\user.js:24"
             },
             "result": {
               "status": "passed",
@@ -204,39 +176,39 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 19,
-            "name": "I send GET request to /users",
+            "line": 20,
+            "name": "I send GET request to /users/products in get id",
             "match": {
-              "location": "e2e/steps/users.js:23"
+              "location": "e2e\\steps\\user.js:28"
             },
             "result": {
-              "status": "passed",
-              "duration": 6000000
+              "status": "failed",
+              "duration": 22000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 20,
-            "name": "I receive {\"id\":7,\"name\":\"Ian Weimann DVM\",\"email\":\"Euna_Bergstrom@hotmail.com\",\"phoneNumber\":\"(297) 962-1879\", \"secondaryPhoneNumber\": \"788.323.7782\"}",
+            "line": 21,
+            "name": "I receive in the get { \"id\": 1, \"name\": \"coca cola can\", \"price\": 5}",
             "match": {
-              "location": "e2e/steps/users.js:28"
+              "location": "e2e\\steps\\user.js:33"
             },
             "result": {
-              "status": "passed",
-              "duration": 2000000
+              "status": "skipped"
             }
           }
         ]
       },
       {
-        "id": "users-service;get-user-by-id",
+        "id": "product-management-system;get-product-by-id",
         "keyword": "Scenario",
         "line": 26,
-        "name": "get user by Id",
+        "name": "get product by Id",
         "tags": [
           {
-            "name": "@users-service",
+            "name": "@product-service",
             "line": 1
           }
         ],
@@ -245,10 +217,10 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 18,
-            "name": "A userId 8 exist",
+            "line": 19,
+            "name": "A ProductID 2 exist in the system",
             "match": {
-              "location": "e2e/steps/users.js:19"
+              "location": "e2e\\steps\\user.js:24"
             },
             "result": {
               "status": "passed",
@@ -258,27 +230,559 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 19,
-            "name": "I send GET request to /users",
+            "line": 20,
+            "name": "I send GET request to /users/products in get id",
             "match": {
-              "location": "e2e/steps/users.js:23"
+              "location": "e2e\\steps\\user.js:28"
             },
             "result": {
-              "status": "passed",
-              "duration": 3000000
+              "status": "failed",
+              "duration": 3000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 20,
-            "name": "I receive null",
+            "line": 21,
+            "name": "I receive in the get { \"id\": 2, \"name\": \"sprite can\",\"price\": 6}",
             "match": {
-              "location": "e2e/steps/users.js:28"
+              "location": "e2e\\steps\\user.js:33"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product-management-system;get-product-by-id",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "get product by Id",
+        "tags": [
+          {
+            "name": "@product-service",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "A ProductID 3 exist in the system",
+            "match": {
+              "location": "e2e\\steps\\user.js:24"
             },
             "result": {
               "status": "passed",
-              "duration": 3000000
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I send GET request to /users/products in get id",
+            "match": {
+              "location": "e2e\\steps\\user.js:28"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "I receive in the get { \"id\": 3, \"name\": \"chipsy\",\"price\": 5 }",
+            "match": {
+              "location": "e2e\\steps\\user.js:33"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product-management-system;get-product-by-id",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "get product by Id",
+        "tags": [
+          {
+            "name": "@product-service",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "A ProductID 4 exist in the system",
+            "match": {
+              "location": "e2e\\steps\\user.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I send GET request to /users/products in get id",
+            "match": {
+              "location": "e2e\\steps\\user.js:28"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 2000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "I receive in the get { \"id\": 4, \"name\": \"molto\", \"price\": 5 }",
+            "match": {
+              "location": "e2e\\steps\\user.js:33"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product-management-system;get-all-products",
+        "keyword": "Scenario",
+        "line": 40,
+        "name": "get all products",
+        "tags": [
+          {
+            "name": "@product-service",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 34,
+            "name": "That all products exist",
+            "match": {
+              "location": "e2e\\steps\\user.js:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 35,
+            "name": "I send GET request to /users/products in get all",
+            "match": {
+              "location": "e2e\\steps\\user.js:41"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 3000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 36,
+            "name": "I receive \"view success\" in get all",
+            "match": {
+              "location": "e2e\\steps\\user.js:46"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product-management-system;delete-a-product-by-id",
+        "keyword": "Scenario",
+        "line": 50,
+        "name": "delete a product by Id",
+        "tags": [
+          {
+            "name": "@product-service",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 44,
+            "name": "A ProductID 1 exist in the supermarket",
+            "match": {
+              "location": "e2e\\steps\\user.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 45,
+            "name": "I send Delete request to /users/products",
+            "match": {
+              "location": "e2e\\steps\\user.js:57"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 3000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 46,
+            "name": "I receive { \"message\": \"deleted success\"} in the delete",
+            "match": {
+              "location": "e2e\\steps\\user.js:62"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product-management-system;update-product-by-id",
+        "keyword": "Scenario",
+        "line": 61,
+        "name": "update product by Id",
+        "tags": [
+          {
+            "name": "@product-service",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 53,
+            "name": "A ProductID 1 exist in my system",
+            "match": {
+              "location": "e2e\\steps\\user.js:70"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 54,
+            "name": "I update the price of the product to 10",
+            "match": {
+              "location": "e2e\\steps\\user.js:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 55,
+            "name": "send UPDATE request to /users/products",
+            "match": {
+              "location": "e2e\\steps\\user.js:78"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 2000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 56,
+            "name": "I get response code in the update 200",
+            "match": {
+              "location": "e2e\\steps\\user.js:84"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 57,
+            "name": "I receive response in the update { \"id\": 1, \"name\": \"coca cola can\", \"price\": 10}",
+            "match": {
+              "location": "e2e\\steps\\user.js:88"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product-management-system;update-product-by-id",
+        "keyword": "Scenario",
+        "line": 62,
+        "name": "update product by Id",
+        "tags": [
+          {
+            "name": "@product-service",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 53,
+            "name": "A ProductID 2 exist in my system",
+            "match": {
+              "location": "e2e\\steps\\user.js:70"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 54,
+            "name": "I update the price of the product to 30",
+            "match": {
+              "location": "e2e\\steps\\user.js:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 55,
+            "name": "send UPDATE request to /users/products",
+            "match": {
+              "location": "e2e\\steps\\user.js:78"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 2000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 56,
+            "name": "I get response code in the update 200",
+            "match": {
+              "location": "e2e\\steps\\user.js:84"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 57,
+            "name": "I receive response in the update { \"id\": 2, \"name\": \"sprite can\",\"price\": 30}",
+            "match": {
+              "location": "e2e\\steps\\user.js:88"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product-management-system;update-product-by-id",
+        "keyword": "Scenario",
+        "line": 63,
+        "name": "update product by Id",
+        "tags": [
+          {
+            "name": "@product-service",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 53,
+            "name": "A ProductID 3 exist in my system",
+            "match": {
+              "location": "e2e\\steps\\user.js:70"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 54,
+            "name": "I update the price of the product to 20",
+            "match": {
+              "location": "e2e\\steps\\user.js:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 55,
+            "name": "send UPDATE request to /users/products",
+            "match": {
+              "location": "e2e\\steps\\user.js:78"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 3000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 56,
+            "name": "I get response code in the update 200",
+            "match": {
+              "location": "e2e\\steps\\user.js:84"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 57,
+            "name": "I receive response in the update { \"id\": 3, \"name\": \"chipsy\",\"price\": 20}",
+            "match": {
+              "location": "e2e\\steps\\user.js:88"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "product-management-system;update-product-by-id",
+        "keyword": "Scenario",
+        "line": 64,
+        "name": "update product by Id",
+        "tags": [
+          {
+            "name": "@product-service",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 53,
+            "name": "A ProductID 4 exist in my system",
+            "match": {
+              "location": "e2e\\steps\\user.js:70"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 54,
+            "name": "I update the price of the product to 40",
+            "match": {
+              "location": "e2e\\steps\\user.js:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 55,
+            "name": "send UPDATE request to /users/products",
+            "match": {
+              "location": "e2e\\steps\\user.js:78"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 2000000,
+              "error_message": "Error: connect ECONNREFUSED 127.0.0.1:3001\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 56,
+            "name": "I get response code in the update 200",
+            "match": {
+              "location": "e2e\\steps\\user.js:84"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 57,
+            "name": "I receive response in the update { \"id\": 4, \"name\": \"molto\",\"price\": 40}",
+            "match": {
+              "location": "e2e\\steps\\user.js:88"
+            },
+            "result": {
+              "status": "skipped"
             }
           }
         ]
