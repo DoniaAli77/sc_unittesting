@@ -19,13 +19,14 @@ When('I send POST request to {}', async function (path) {
 Then('I get response code {int}', async function (code) {
   assert.equal(this.context['response'].status, code);
 });
-
-/******** SCENARIO #2 ********/
-Given('A ProductID {int}', async function (id) {
+/*************** for all senarios */
+Given('A ProductID {int} exist', async function (id) {
   this.context['id'] = id;
 });
+/******** SCENARIO #2 ********/
 
-When('I send GET request to {} in get id', async function (path) {
+
+When('I send GET request to {} to get a specific product', async function (path) {
   const response = await axios.get(`${process.env.SERVICE_URL}${path}/${this.context['id']}`);
   this.context['response'] = response;
 })
@@ -38,7 +39,7 @@ Given('That all products exist', async function () {
   this.context = {};
 });
 
-When('I send GET request to {} in get all', async function (path) {
+When('I send GET request to {} to get all products', async function (path) {
   const response = await axios.get(`${process.env.SERVICE_URL}${path}`);
   this.context['response'] = response;
 })
@@ -49,10 +50,7 @@ Then('I receive {} in get all', async function (expectedResponse) {
 
 
 /******** SCENARIO #4 ********/
-Given('A ProductID {} exist ', async function (id) {
-  this.context['id'] = id;
 
-});
 
 When('I send Delete request to {}', async function (path) {
   const response = await axios.delete(`${process.env.SERVICE_URL}${path}/${this.context['id']}`);
@@ -64,10 +62,7 @@ Then('I receive {} in the delete', async function (expectedResponse) {
 });
 
 /******** SCENARIO #5 ********/
-Given('A ProductID {} exist in my system', async function (id) {
-  this.context['id'] = id;
 
-});
 When('I update the price of the product to {int}', async function (price) {
   this.context['price'] = price;
 

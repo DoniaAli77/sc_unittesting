@@ -8,7 +8,7 @@ Feature:Product management system
     Given A user of the system
     When I enter <username> and <password>
     And I send POST request to /users/login 
-    Then I get response code <response> and code 201 
+    Then I get response code 201 
 
     Examples:
       |username  |password |                                                                                            
@@ -17,7 +17,7 @@ Feature:Product management system
 
   Scenario Outline: get product by Id
     Given A ProductID <id> exist 
-    When I send GET request to /users/products in get id
+    When I send GET request to /users/products to get a specific product
     Then I receive in the get <response>
 
     Examples:
@@ -41,7 +41,7 @@ Feature:Product management system
 
     Scenario Outline: get all products
     Given That all products exist
-    When I send GET request to /users/products in get all
+    When I send GET request to /users/products to get all products
     Then I receive <response> in get all
 
     Examples:
@@ -51,7 +51,7 @@ Feature:Product management system
 
 
     Scenario Outline: update product by Id
-    Given A ProductID <id> exist in my system
+    Given A ProductID <id> exist
     When I update the price of the product to <price>
     And send UPDATE request to /users/products
     Then I get response code in the update 200 
